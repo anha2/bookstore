@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Bookstore</title>
@@ -6,7 +7,7 @@
 </head>
 <body>
     <h1>Books</h1>
-    <table>
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>Author</th>
@@ -23,11 +24,11 @@
                 <td th:text="${book.publicationYear}"></td>
                 <td>
                     <a th:href="@{/edit/{id}(id=${book.id})}">Edit</a>
-                    <a th:href="@{/delete/{id}(id=${book.id})}">Delete</a>
+                    <a th:href="@{/delete/{id}(id=${book.id})}" class="btn btn-danger">Delete</a>
                 </td>
             </tr>
         </tbody>
     </table>
-    <a href="/add" class="btn btn-primary">Add Book</a>
+    <a href="/add" class="btn btn-success">Add Book</a>
 </body>
 </html>

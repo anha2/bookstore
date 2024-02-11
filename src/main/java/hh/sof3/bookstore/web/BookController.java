@@ -57,6 +57,7 @@ public class BookController {
 
     @PostMapping("/update")
     public String updateBook(@ModelAttribute("book") Book updatedBook) {
+        @SuppressWarnings("null")
         Book existingBook = bookRepository.findById(updatedBook.getId()).orElse(null);
 
         if (existingBook != null) {
