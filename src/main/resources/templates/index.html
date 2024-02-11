@@ -7,7 +7,7 @@
 <body>
     <h1>Tervetuloa</h1>
     <ul th:each="book : ${books}">
-        <li th:text="${book.title + ' ' + book.author}"></li>
+        <li th:text="${'Teos: ' + book.title + ' tekija: ' + book.author + ' Julkaisuvuosi: ' + book.publicationYear + ' Isbn: ' + book.isbn}"></li>
     </ul>
 </body>
 </html>
