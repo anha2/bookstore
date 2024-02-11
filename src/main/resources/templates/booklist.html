@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Bookstore</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <h1>Tervetuloa</h1>
+    <ul th:each="book : ${books}">
+        <li th:text="${'Teos: ' + book.title + ' tekija: ' + book.author + ' Julkaisuvuosi: ' + book.publicationYear + ' Isbn: ' + book.isbn}"></li>
+    </ul>
+</body>
+</html>

@@ -15,12 +15,12 @@ public class BookController {
 
     private BookRepository bookRepository;
 
-    @RequestMapping(value = { "/index", "*" }, method = RequestMethod.GET)
+    @RequestMapping(value = { "/booklist", "*" }, method = RequestMethod.GET)
     public String getBooks(Model model) {
 
         model.addAttribute("books", bookRepository.findAll());
 
-        return "index";
+        return "booklist";
 
     }
 
