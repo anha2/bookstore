@@ -26,16 +26,15 @@ public class BookstoreApplication {
 		return (args) -> {
 
 			log.info("save some sample categories");
-			categoryRepository.save(new Category("Sci-Fi"));
-			categoryRepository.save(new Category("Comic"));
+			Category category1 = new Category("Sci-Fi");
+			categoryRepository.save(category1);
 
-			for (Category category : categoryRepository.findAll()) {
-				log.info(category.toString());
-			}
+			Category category2 = new Category("Comic");
+			categoryRepository.save(category2);
 
 			log.info("save some sample books");
-			bookRepository.save(new Book("Kiinalainen kissa", "Lumme Leena", 2008, "9789510343432", 12.00));
-			bookRepository.save(new Book("Aurora", "Sanaksenaho Pinja", 2024, "9789511468790", 24.95));
+			bookRepository.save(new Book("Kiinalainen kissa", "Lumme Leena", 2008, "9789510343432", 12.00, category1));
+			bookRepository.save(new Book("Aurora", "Sanaksenaho Pinja", 2024, "9789511468790", 24.95, category2));
 
 			for (Book book : bookRepository.findAll()) {
 				log.info(book.toString());
