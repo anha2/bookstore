@@ -6,6 +6,8 @@ import org.springframework.ui.Model;
 
 import hh.sof3.bookstore.domain.Book;
 import hh.sof3.bookstore.domain.BookRepository;
+import hh.sof3.bookstore.domain.Category;
+import hh.sof3.bookstore.domain.CategoryRepository;
 
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,6 +21,9 @@ public class BookController {
     @Autowired
 
     private BookRepository bookRepository;
+
+    @Autowired
+    private CategoryRepository categoryRepository;
 
     @RequestMapping(value = { "/booklist", "*" }, method = RequestMethod.GET)
     public String getBooks(Model model) {
@@ -37,6 +42,7 @@ public class BookController {
     @RequestMapping(value = "/add")
     public String addBook(Model model) {
         model.addAttribute("book", new Book());
+        model.addAttribute("categories", categoryRepository.findAll());
         return "addbook";
     }
 
