@@ -19,7 +19,7 @@ public class CategoryController {
     private CategoryRepository categoryRepository;
 
     @RequestMapping(value = { "/categorylist", "*" }, method = RequestMethod.GET)
-    public String getCategories(Model model) {
+    public String categoryList(Model model) {
         model.addAttribute("categories", categoryRepository.findAll());
         return "categorylist"; // categorylist.html
     }
