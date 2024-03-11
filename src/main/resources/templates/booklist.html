@@ -31,7 +31,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
                 <th>ISBN</th>
                 <th>Year</th>
                 <th>Category</th>
-                <th sec:authorize="hasRole('ADMIN')"> </th>
+                <th sec:authorize="hasAuthority('ADMIN')"> </th>
             </tr>
         </thead>
         <tbody>
@@ -43,7 +43,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
                 <td th:text="${book.category.name}"></td>
                 <td>
                     <a th:href="@{/edit/{id}(id=${book.id})}">Edit</a>
-                    <td sec:authorize="hasRole('ADMIN')">
+                    <td sec:authorize="hasAuthority('ADMIN')">
                     <a th:href="@{/delete/{id}(id=${book.id})}" class="btn btn-danger">Delete</a></td>
                 </td>
             </tr>

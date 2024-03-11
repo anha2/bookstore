@@ -17,7 +17,7 @@ import hh.sof3.bookstore.domain.BookRepository;
 @CrossOrigin
 @Controller
 
-public class BookRestControlller {
+public class BookRestController {
     @Autowired
     private BookRepository bookRepository;
 

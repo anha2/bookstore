@@ -7,7 +7,6 @@ import org.springframework.ui.Model;
 
 import hh.sof3.bookstore.domain.Book;
 import hh.sof3.bookstore.domain.BookRepository;
-import hh.sof3.bookstore.domain.Category;
 import hh.sof3.bookstore.domain.CategoryRepository;
 
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -20,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class BookController {
 
     @Autowired
-
     private BookRepository bookRepository;
 
     @Autowired
@@ -33,13 +31,8 @@ public class BookController {
 
     }
 
-    @RequestMapping(value = "/login")
-    public String login() {
-        return "login";
-    }
-
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public String deleteBook(@PathVariable("id") Long bookId, Model model) {
         bookRepository.deleteById(bookId);
         return "redirect:../booklist";
